@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>Converter Calculator| Project</title>
+	<style type="text/css">
+        body{
+		    background: url(https://wallpaperaccess.com/full/5644789.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+		}
+        table{
+            background-color: #6983F0;
+        }
+        a,h2,h3,p,h1{
+          text-align: center;
+          font-family: serif;
+        }
+
+</style>
+</head>
+ <body>
+ <h1 style="font-family: Aboreto;color:white;";>Converter Calculator</span></h1>
+
+  <div class="container bg-light">
+  <h2 style="font-family: Aboreto;color:darkblue";>⬇ The Date and Time Today ⬇</h2>
+  <p id="today"></p>
+
+  <script>
+	const date = new Date();
+	document.getElementById("today").innerHTML = date;
+  </script>
+
+  <hr>
+  <h3 style="font-family: Aboreto;color:darkblue";> ⬇ Length Converter ⬇</h3>
+  <p>Type a value in the Length field to convert the value to you desired measurement.</p> 
+
+  <div class="container" align="center">
+
+    <br>
+    <h2 style="font-family: Aboreto;color:darkblue";>⬇ Milimeters ➜ Centimeters/Meters/Kilometers ⬇ </h2>
+    <br>
+
+    <label for="millimeters">Millimeters:</label>
+    <input type="number" placeholder="Enter value" id="millimeters" />
+    <label for="unit">Convert to:</label>
+    <select id="unit">
+        <option value="centimeters">Centimeters</option>
+        <option value="meters">Meters</option>
+        <option value="kilometers">Kilometers</option>
+    </select>
+
+    <script>
+        function convertLength() {
+            var millimeters = parseFloat(document.getElementById("millimeters").value);
+            var unit = document.getElementById("unit").value;
+            var result;
+
+            if (unit === "centimeters") {
+                result = (millimeters / 10).toFixed(10);
+            } else if (unit === "meters") {
+                result = (millimeters / 1000).toFixed(10);
+            } else if (unit === "kilometers") {
+                result = (millimeters / 1000000).toFixed(10);
+            } else {
+                result = 0;
+            }
+
+            document.getElementById("result").textContent = result;
+        }
+    </script>
+
+    <div class="container">
+     <br>
+    <button style="font-family: Aboreto;color:antiquewhite;"; type="button" class="btn btn-info" onclick="convertLength()">Convert</button>
+    </div>
+    
+    <br>
+    <h4 style="font-family: Aboreto;color:darkblue";> ⬇ Conversion Result ⬇</h4>
+    <p id="result"></p>
+    </div>
+    <br>
+
+
+</body>
+</html>
